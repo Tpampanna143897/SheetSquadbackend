@@ -1,19 +1,17 @@
 const express = require("express");
+const cors = require("cors"); // ✅ only declared once
 const multer = require("multer");
 const unzipper = require("unzipper");
 const XLSX = require("xlsx");
 const fs = require("fs");
 const path = require("path");
-const cors = require("cors");
 
 const app = express();
-app.use(cors());
 const PORT = 5000;
 
-const cors = require("cors");
-
+// ✅ CORS middleware (after importing once above)
 app.use(cors({
-  origin: "https://sheet-squad.vercel.app", // ✅ Allow your frontend origin
+  origin: "https://sheet-squad.vercel.app",
   methods: ["POST", "GET"],
 }));
 
