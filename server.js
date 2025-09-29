@@ -10,6 +10,13 @@ const app = express();
 app.use(cors());
 const PORT = 5000;
 
+const cors = require("cors");
+
+app.use(cors({
+  origin: "https://sheet-squad.vercel.app", // ✅ Allow your frontend origin
+  methods: ["POST", "GET"],
+}));
+
 const UPLOAD_DIR = "uploads";
 if (!fs.existsSync(UPLOAD_DIR)) fs.mkdirSync(UPLOAD_DIR);
 
